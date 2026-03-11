@@ -1,13 +1,16 @@
 ime_datoteke = "song.txt"
-
 datoteka = open(ime_datoteke)
-
 broj_rijeci = {}
 
 for linija in datoteka:
-    rijeci = linija.split() 
+    rijeci = linija.split()
     for rijec in rijeci:
-        broj_rijeci[rijec] = broj_rijeci.get(rijec, 0) + 1
+        if rijec in broj_rijeci:
+            broj_rijeci[rijec] += 1
+        else:
+            broj_rijeci[rijec] = 1
+
+datoteka.close()
 
 rijeci_jednom = []
 
